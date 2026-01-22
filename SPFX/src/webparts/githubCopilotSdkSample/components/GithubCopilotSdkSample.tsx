@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './GithubCopilotSdkSample.module.scss';
 import type { IGithubCopilotSdkSampleProps } from './IGithubCopilotSdkSampleProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import CopilotClientUISendAndWait from './Github Copilot/CopilotClientUISendAndWait';
 
 export default class GithubCopilotSdkSample extends React.Component<IGithubCopilotSdkSampleProps> {
   public render(): React.ReactElement<IGithubCopilotSdkSampleProps> {
@@ -20,6 +21,9 @@ export default class GithubCopilotSdkSample extends React.Component<IGithubCopil
           <h2>Well done, {escape(userDisplayName)}!</h2>
           <div>{environmentMessage}</div>
           <div>Web part property value: <strong>{escape(description)}</strong></div>
+        </div>
+        <div>
+          <CopilotClientUISendAndWait />
         </div>
       </section>
     );
