@@ -1,9 +1,11 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { CopilotClient } from "@github/copilot-sdk";
+import configuration from "../config.js";
 
 /**
  * Azure Function HTTP trigger for GitHub Copilot SDK integration
  * Accepts a prompt and returns the Copilot response
+ * @see https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#step-2-send-your-first-message
  */
 export async function copilotChat(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log('HTTP trigger function processing a request.');
@@ -12,7 +14,7 @@ export async function copilotChat(request: HttpRequest, context: InvocationConte
         // Parse request body
         const body = await request.json() as { prompt?: string; model?: string };
         const prompt = body?.prompt;
-        const model = body?.model || "gpt-4o";
+        const model = body?.model || configuration.model.model;
 
         // Validate input
         if (!prompt) {

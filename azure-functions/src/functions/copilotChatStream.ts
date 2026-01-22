@@ -1,5 +1,6 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { CopilotClient } from "@github/copilot-sdk";
+import configuration from "../config.js";
 
 /**
  * Azure Function HTTP trigger for streaming Copilot responses
@@ -12,7 +13,7 @@ export async function copilotChatStream(request: HttpRequest, context: Invocatio
         // Parse request body
         const body = await request.json() as { prompt?: string; model?: string };
         const prompt = body?.prompt;
-        const model = body?.model || "gpt-4o";
+        const model = body?.model || configuration.model.model;
 
         // Validate input
         if (!prompt) {
