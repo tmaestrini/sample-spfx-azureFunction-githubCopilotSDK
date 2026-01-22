@@ -1,6 +1,6 @@
 # GitHub Copilot SDK - SPFx & Azure Functions
 
-This repository demonstrates how to integrate GitHub Copilot SDK with SharePoint Framework (SPFx) using Azure Functions as a backend.
+This repository demonstrates how to integrate [GitHub Copilot SDK](https://github.com/github/copilot-sdk) with SharePoint Framework (SPFx) using Azure Functions as a backend.
 
 ## Project Structure
 
@@ -20,6 +20,7 @@ This repository demonstrates how to integrate GitHub Copilot SDK with SharePoint
 The **GitHub Copilot SDK** is a **Node.js-only** library and cannot run in the browser. SPFx web parts run in the browser, so we need a server-side component to handle Copilot SDK calls.
 
 **Solution**: Azure Functions provides a serverless backend that:
+
 - Runs the Copilot SDK in a Node.js environment
 - Exposes HTTP endpoints for the SPFx web part to call
 - Scales automatically based on demand
