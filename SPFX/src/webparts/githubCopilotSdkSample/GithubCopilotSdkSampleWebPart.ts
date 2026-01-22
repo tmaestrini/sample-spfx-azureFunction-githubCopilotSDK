@@ -13,7 +13,7 @@ import GithubCopilotSdkSample from './components/GithubCopilotSdkSample';
 import { IGithubCopilotSdkSampleProps } from './components/IGithubCopilotSdkSampleProps';
 
 export interface IGithubCopilotSdkSampleWebPartProps {
-  description: string;
+  backendAPIUrl: string;
 }
 
 export default class GithubCopilotSdkSampleWebPart extends BaseClientSideWebPart<IGithubCopilotSdkSampleWebPartProps> {
@@ -25,7 +25,7 @@ export default class GithubCopilotSdkSampleWebPart extends BaseClientSideWebPart
     const element: React.ReactElement<IGithubCopilotSdkSampleProps> = React.createElement(
       GithubCopilotSdkSample,
       {
-        description: this.properties.description,
+        backendAPIUrl: this.properties.backendAPIUrl,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
@@ -108,8 +108,9 @@ export default class GithubCopilotSdkSampleWebPart extends BaseClientSideWebPart
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('backendAPIUrl', {
+                  label: strings.BackendAPIUrlFieldLabel,
+                  
                 })
               ]
             }

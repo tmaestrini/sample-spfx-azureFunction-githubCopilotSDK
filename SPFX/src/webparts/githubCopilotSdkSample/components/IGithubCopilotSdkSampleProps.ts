@@ -1,5 +1,5 @@
 export interface IGithubCopilotSdkSampleProps {
-  description: string;
+  backendAPIUrl: string;
   isDarkTheme: boolean;
   environmentMessage: string;
   hasTeamsContext: boolean;

@@ -22,7 +22,7 @@
     "description": { "default": "Github Copilot SDK Sample description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Github Copilot SDK Sample"
+      "backendAPIUrl": "http://localhost:7071/api/copilot-chat",
     }
   }]
 }

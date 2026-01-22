@@ -32,7 +32,11 @@ const useStyles = makeStyles({
   },
 });
 
-const CopilotClientUISendAndWait: React.FC = () => {
+type CopilotClientUiSendAndWaitProps = {
+  backendAPIUrl: string;
+};
+
+const CopilotClientUISendAndWait: React.FC<CopilotClientUiSendAndWaitProps> = ({ backendAPIUrl }) => {
   const [prompt, setPrompt] = React.useState<string>('');
   const [promptResponse, setPromptResponse] = React.useState<string>('Response will appear here...');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -45,7 +49,7 @@ const CopilotClientUISendAndWait: React.FC = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:7071/api/copilot-chat', {
+      const response = await fetch(backendAPIUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
