@@ -7,8 +7,6 @@ Content-Type: application/json
   "model": "claude-sonnet-4.5"
 }
 
-###
-
 ### Test copilot-chat-stream endpoint
 POST http://localhost:7071/api/copilot-chat-stream
 Content-Type: application/json
