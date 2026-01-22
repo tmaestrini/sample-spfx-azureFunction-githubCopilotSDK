@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "tmaestrini-spfx-sample-github-copilot-sdk-client-side-solution",
+    "id": "fb7fb8fd-d108-4aa1-8045-11059dc12d2b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.22.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "tmaestrini-spfx-sample-github-copilot-sdk description"
+      },
+      "longDescription": {
+        "default": "tmaestrini-spfx-sample-github-copilot-sdk description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "tmaestrini-spfx-sample-github-copilot-sdk Feature",
+        "description": "The feature that activates elements of the tmaestrini-spfx-sample-github-copilot-sdk solution.",
+        "id": "a4564d63-b71d-46e6-84ef-3642ed4fdc9a",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/tmaestrini-spfx-sample-github-copilot-sdk.sppkg"
+  }
+}
