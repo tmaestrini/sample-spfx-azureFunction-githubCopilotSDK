@@ -1,6 +1,7 @@
-import { app } from "@azure/functions";
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { copilotChat } from "./functions/copilotChat.js";
 import { copilotChatStream } from "./functions/copilotChatStream.js";
+import { checkForApiKey, middleware } from "./middleware/middleware.js";
 
 /**
  * Central function registration
@@ -11,13 +12,12 @@ import { copilotChatStream } from "./functions/copilotChatStream.js";
 app.http('copilot-chat', {
     methods: ['POST'],
     authLevel: 'anonymous',
-    
-    handler: copilotChat
+    handler: middleware(copilotChat),
 });
 
 // Register copilot-chat-stream function
 app.http('copilot-chat-stream', {
     methods: ['POST'],
     authLevel: 'anonymous',
-    handler: copilotChatStream
+    handler: middleware(copilotChatStream, [checkForApiKey]),
 });
