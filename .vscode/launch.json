@@ -7,6 +7,24 @@
       "request": "attach",
       "port": 9229,
       "preLaunchTask": "func: host start"
+    },
+    {
+      "name": "Debug SPFx project",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:5432/workbench",
+      "webRoot": "${workspaceFolder}/SPFX",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///.././src/*": "${webRoot}/src/*",
+        "webpack:///../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../src/*": "${webRoot}/src/*",
+        "webpack:///../../../../../src/*": "${webRoot}/src/*"
+      },
+      "runtimeArgs": [
+        "--remote-debugging-port=9222"
+      ],
+      "preLaunchTask": "SPFx heft: start"
     }
   ]
 }

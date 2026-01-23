@@ -40,6 +40,28 @@
       "options": {
         "cwd": "${workspaceFolder}/azure-functions"
       }
+    },
+    {
+      "type": "npm",
+      "label": "SPFx heft: start",
+      "script": "start",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/SPFX"
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Starting gulp.*$",
+          "endsPattern": "^.*Finished subtask 'reload'.*$|^.*Finished 'serve'.*$"
+        }
+      }
     }
   ]
 }
