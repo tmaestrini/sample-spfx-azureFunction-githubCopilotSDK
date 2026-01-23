@@ -1,6 +1,6 @@
 import { HttpRequest, InvocationContext, HttpResponseInit } from "@azure/functions";
 
-export type SecureFunction = (request: HttpRequest, context: InvocationContext) => Promise<HttpResponseInit>;
+export type AzureFunction = (request: HttpRequest, context: InvocationContext) => Promise<HttpResponseInit>;
 export type MiddlewareFunction = (request: HttpRequest, context: InvocationContext) => Promise<{success: boolean, error?: string}>;
 
 /**
@@ -9,7 +9,8 @@ export type MiddlewareFunction = (request: HttpRequest, context: InvocationConte
  * @param middlewares - Array of middleware functions to execute
  * @returns Wrapped function with middleware chain
  */
-const middleware = (fn: SecureFunction, middlewares?: MiddlewareFunction[]): SecureFunction => {
+const middleware = (fn: AzureFunction, middlewares?: MiddlewareFunction[]): AzureFunction => {
+  // Return a new function (that matches the AzureFunction type) that includes middleware processing
   return async (request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {
     // Execute middleware chain
     for (const middlewareFunction of middlewares ?? []) {
@@ -40,7 +41,6 @@ const middleware = (fn: SecureFunction, middlewares?: MiddlewareFunction[]): Sec
  */
 const checkForApiKey: MiddlewareFunction = async (request: HttpRequest, context: InvocationContext): Promise<{success: boolean, error?: string}> => {
   const apiKey = request.headers.get('x-api-key');
-  
   context.log('Checking API key...');
   
   if (!apiKey) {
