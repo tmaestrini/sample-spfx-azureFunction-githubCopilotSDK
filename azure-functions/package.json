@@ -9,6 +9,7 @@
     "watch": "tsc --watch",
     "clean": "rimraf dist",
     "start": "func start",
+    "start:debug": "func start --javascript --language-worker=\"--inspect=9229\"",
     "prestart": "npm run build"
   },
   "dependencies": {

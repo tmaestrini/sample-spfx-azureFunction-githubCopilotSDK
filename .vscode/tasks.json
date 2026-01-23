@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "func: host start",
+      "command": "func start --javascript --language-worker=\"--inspect=9229\"",
+      "isBackground": true,
+      "dependsOn": "npm: build",
+      "options": {
+        "cwd": "${workspaceFolder}/azure-functions"
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*(Starting|Debugger listening).*$",
+          "endsPattern": "^.*(Worker process started and initialized|Host lock lease acquired by instance ID|Debugger listening on).*$"
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "label": "npm: build",
+      "script": "build",
+      "options": {
+        "cwd": "${workspaceFolder}/azure-functions"
+      }
+    },
+    {
+      "type": "npm",
+      "label": "npm: watch",
+      "script": "watch",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/azure-functions"
+      }
+    }
+  ]
+}
