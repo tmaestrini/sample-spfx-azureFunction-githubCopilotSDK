@@ -47,10 +47,11 @@ See [azure-functions/README.md](azure-functions/README.md) for details.
 ```bash
 cd SPFX
 npm install
-gulp serve
+heft start
 ```
 
-**Note**: The current implementation in the SPFx web part needs to be updated to call the Azure Function endpoint instead of trying to use the Copilot SDK directly.
+>[!NOTE]
+> The current SPFx implementation (web part) needs to be updated to **call an authenticated Azure Function endpoint (recommended!)** trying to use the Copilot SDK.
 
 ## Usage Example
 
