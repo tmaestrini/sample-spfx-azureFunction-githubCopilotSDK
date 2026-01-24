@@ -81,8 +81,8 @@ func azure functionapp publish <your-function-app-name>
 ### SPFx Web Part
 ```bash
 cd SPFX
-gulp bundle --ship
-gulp package-solution --ship
+heft build --clean
+heft package-solution --production
 ```
 
 Upload the `.sppkg` file to your SharePoint App Catalog.
