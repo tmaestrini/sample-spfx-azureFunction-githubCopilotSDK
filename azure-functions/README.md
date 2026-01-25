@@ -19,6 +19,7 @@ azure-functions/
 │   │   ├── copilotChat.ts           # Simple request/response endpoint
 │   │   └── copilotChatStream.ts     # Alternative endpoint
 │   ├── middleware/                  # Middleware handling (to execute middleware functions before any Azure Function)
+│   │   └── middleware.ts            # Definitions of the middleware functions (examples)
 │   ├── config.ts                    # Common configurations used within the functions (e.g. default model)
 │   ├── functionRegistrations.ts     # Central function registration for all exposed functions
 │   └── index.ts                     # Azure Functions entry point
