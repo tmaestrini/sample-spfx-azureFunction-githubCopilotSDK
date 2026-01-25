@@ -4,7 +4,7 @@ This Azure Functions project provides a serverside backend for integrating GitHu
 
 ## Prerequisites
 
-Make sure you use the Node.js programming model along with [its supported dependencies and versions]([https://](https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=typescript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)):
+Make sure you use the Node.js programming model along with [its supported dependencies and versions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=typescript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions):
 
 - [Node.js](https://nodejs.org/) v18 or higher (22.x 20.x)
 - [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local) v4.x
