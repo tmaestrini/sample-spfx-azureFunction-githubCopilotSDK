@@ -43,17 +43,20 @@ npm run build
 npm start
 ```
 
-The function will be available at:
+The functions will be available at:
+
 - **POST** `http://localhost:7071/api/copilot-chat`
 - **POST** `http://localhost:7071/api/copilot-chat-stream`
 
 ## API Endpoints
 
-### POST /api/copilot-chat
+### POST `/api/copilot-chat`
 
-Sends a prompt to GitHub Copilot and returns the response.
+Sends a prompt to GitHub Copilot and returns the response, depending on the model of your choice (and your subscription).
+Example:
 
 **Request Body:**
+
 ```json
 {
   "prompt": "What is 2 + 2?",
@@ -62,6 +65,7 @@ Sends a prompt to GitHub Copilot and returns the response.
 ```
 
 **Response:**
+
 ```json
 {
   "content": "2 + 2 equals 4.",
@@ -70,7 +74,7 @@ Sends a prompt to GitHub Copilot and returns the response.
 }
 ```
 
-### POST /api/copilot-chat-stream
+### POST `/api/copilot-chat-stream`
 
 Alternative endpoint (currently uses sendAndWait, can be extended for streaming).
 
@@ -87,6 +91,7 @@ curl -X POST http://localhost:7071/api/copilot-chat \
 ### Using Azure CLI
 
 1. Create a Function App:
+
 ```bash
 az functionapp create \
   --resource-group <resource-group-name> \
@@ -98,7 +103,8 @@ az functionapp create \
   --storage-account <storage-account-name>
 ```
 
-2. Deploy the function:
+1. Deploy the function:
+
 ```bash
 func azure functionapp publish <function-app-name>
 ```
@@ -148,7 +154,7 @@ const response = await fetch('https://<your-function-app>.azurewebsites.net/api/
 });
 
 const data = await response.json();
-console.log(data.content);
+// process the response data
 ```
 
 ## Development Scripts
@@ -161,12 +167,15 @@ console.log(data.content);
 ## Troubleshooting
 
 ### Module not found errors
+
 Ensure `"type": "module"` is in package.json for ESM support.
 
 ### CORS errors
-Configure CORS in local.settings.json or Azure Portal.
+
+Configure CORS in `local.settings.json` or the Azure Portal.
 
 ### GitHub Copilot SDK errors
+
 Verify GitHub Copilot access and API availability.
 
 ## Learn More
