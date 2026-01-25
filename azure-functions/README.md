@@ -39,11 +39,13 @@ approaches without the necessity to do it by configuration in the Azure Function
 
 Every Azure function is registered in `functionRegistrations.ts`. By wrapping the desired Azure Function with the `middleware()` function before passing it to the `handler`, you can *optionally* define the execution of your middleware chain:
 
+```typescript
 app.http('copilot-chat', {
     methods: ['POST'],
     authLevel: 'anonymous',
     handler: middleware(copilotChat, [<function 1>, <function 2>, ...]),
 });
+```
 
 Defining a middleware process is optional. Just pass your Azure Function to the handler in case that no middleware chain should be executed.
 
