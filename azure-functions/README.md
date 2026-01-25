@@ -37,12 +37,13 @@ This implementation contains a middleware layer that ensures the execution of se
 before executing any Azure Function. By using this approach, you can implement your own authentication or authorization
 approaches without the necessity to do it by configuration in the Azure Functions portal.
 
-Every Azure function is registered in `functionRegistrations.ts`. By wrapping the desired Azure Function with the `middleware()` function before passing it to the `handler`, you can *optionally* define the execution of your middleware chain:
+Every exposed Azure function is registered in `functionRegistrations.ts`. By wrapping the desired Azure Function with the `middleware()` function before passing it to the `handler`, you can *optionally* define the execution of your middleware chain:
 
 ```typescript
 app.http('copilot-chat', {
     methods: ['POST'],
     authLevel: 'anonymous',
+    // route: '...',
     handler: middleware(copilotChat, [<function 1>, <function 2>, ...]),
 });
 ```
