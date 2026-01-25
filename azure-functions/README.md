@@ -18,8 +18,8 @@ azure-functions/
 │   ├── functions/
 │   │   ├── copilotChat.ts           # Simple request/response endpoint
 │   │   └── copilotChatStream.ts     # Alternative endpoint
-│   ├── middleware/                  # Middleware handling (to execute middleware functions before any Azure Function)
-│   │   └── middleware.ts            # Definitions of the middleware functions (examples)
+│   ├── middleware/
+│   │   └── middleware.ts            # Middleware handling (to execute middleware functions before any Azure Function)
 │   ├── config.ts                    # Common configurations used within the functions (e.g. default model)
 │   ├── functionRegistrations.ts     # Central function registration for all exposed functions
 │   └── index.ts                     # Azure Functions entry point
@@ -39,11 +39,13 @@ approaches without the necessity to do it by configuration in the Azure Function
 
 Every Azure function is registered in `functionRegistrations.ts`. By wrapping the desired Azure Function with the `middleware()` function before passing it to the `handler`, you can *optionally* define the execution of your middleware chain:
 
+```typescript
 app.http('copilot-chat', {
     methods: ['POST'],
     authLevel: 'anonymous',
     handler: middleware(copilotChat, [<function 1>, <function 2>, ...]),
 });
+```
 
 Defining a middleware process is optional. Just pass your Azure Function to the handler in case that no middleware chain should be executed.
 
