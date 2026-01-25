@@ -12,12 +12,15 @@ Make sure you use the Node.js programming model along with [its supported depend
 
 ## Project Structure
 
-```
+```plaintext
 azure-functions/
 ├── src/
-│   └── functions/
-│       ├── copilotChat.ts          # Simple request/response endpoint
-│       └── copilotChatStream.ts    # Alternative endpoint
+│   ├── functions/
+│   │   ├── copilotChat.ts           # Simple request/response endpoint
+│   │   └── copilotChatStream.ts     # Alternative endpoint
+│   ├── config.ts                    # Common configurations used within the functions (e.g. default model)
+│   ├── functionRegistrations.ts     # Central function registration for all exposed functions
+│   └── index.ts                     # Azure Functions entry point
 ├── host.json                        # Azure Functions host configuration
 ├── local.settings.json              # Local development settings (gitignored)
 ├── package.json                     # npm dependencies
