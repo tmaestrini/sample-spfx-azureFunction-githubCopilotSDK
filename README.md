@@ -8,11 +8,11 @@ This repository demonstrates how to integrate [GitHub Copilot SDK](https://githu
 ├── SPFX/                           # SharePoint Framework web part (browser)
 ├── azure-functions/                # Azure Functions backend (Node.js)
 │   ├── src/functions/
-│   │   ├── copilotChat.ts         # HTTP trigger for Copilot
-│   │   └── copilotChatStream.ts   # Alternative endpoint
+│   │   ├── copilotChat.ts          # HTTP trigger for Copilot
+│   │   └── copilotChatStream.ts    # Alternative endpoint
 │   └── README.md
 └── .github/
-    └── copilot-instructions.md    # Workspace instructions
+    └── copilot-instructions.md     # Workspace instructions
 ```
 
 ## Why This Architecture?
@@ -37,6 +37,7 @@ npm start
 ```
 
 Functions available at:
+
 - `http://localhost:7071/api/copilot-chat`
 - `http://localhost:7071/api/copilot-chat-stream`
 
@@ -73,12 +74,14 @@ const callCopilot = async (prompt: string) => {
 ## Deployment
 
 ### Azure Functions
+
 ```bash
 cd azure-functions
 func azure functionapp publish <your-function-app-name>
 ```
 
 ### SPFx Web Part
+
 ```bash
 cd SPFX
 heft build --clean
@@ -89,8 +92,8 @@ Upload the `.sppkg` file to your SharePoint App Catalog.
 
 ## Security Considerations
 
-- **CORS**: Configure CORS to only allow requests from your SharePoint tenant
-- **Authentication**: Use Azure AD or function keys for production
+- **CORS**: Configure CORS on the Azure Function side to only allow requests from your SharePoint tenant
+- **Authentication**: Use Entra ID Authentication or function keys for production
 - **API Keys**: Store secrets in Azure Key Vault
 
 ## Learn More
